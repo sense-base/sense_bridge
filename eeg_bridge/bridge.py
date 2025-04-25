@@ -1,0 +1,43 @@
+import numpy as np
+from sense_msgs.msg import EEGBlock
+from std_msgs.msg import Header
+import rclpy
+from rclpy.time import Time
+
+
+class EEGBridge:
+    @staticmethod
+    def numpy_to_eegblock(data: np.ndarray, sampling_rate: float = 256.0, timestamp: rclpy.time.Time = None) -> EEGBlock:
+        """
+        Convert a 2D numpy array of shape (channels, samples) to an EEGBlock message.
+        """
+        if data.ndim != 2:
+            raise ValueError("Input data must be 2D with shape (channels, samples)")
+
+        num_channels, num_samples = data.shape
+        eeg_msg = EEGBlock()
+
+        # Metadata
+        eeg_msg.num_channels = num_channels
+        eeg_msg.num_samples = num_samples
+        eeg_msg.sampling_rate = sampling_rate
+
+        # Header
+        eeg_msg.header = Header()
+        eeg_msg.header.stamp = timestamp.to_msg() if timestamp else Time().to_msg()
+
+        # Flatten the data
+        eeg_msg.data = data.astype(np.float32).flatten().tolist()
+
+        return eeg_msg
+
+    @staticmethod
+    def eegblock_to_numpy(msg: EEGBlock) -> np.ndarray:
+        """
+        Convert an EEGBlock message back into a 2D numpy array of shape (channels, samples)
+        """
+        if len(msg.data) != msg.num_channels * msg.num_samples:
+            raise ValueError("Mismatch between metadata and data length in EEGBlock")
+
+        array = np.array(msg.data, dtype=np.float32)
+        return array.reshape((msg.num_channels, msg.num_samples))
