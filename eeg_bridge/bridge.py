@@ -1,5 +1,6 @@
 import numpy as np
-from sense_msgs.msg import EEGBlock
+from builtin_interfaces.msg import Time as MsgTime
+from eeg_msgs.msg import EEGBlock
 from std_msgs.msg import Header
 import rclpy
 from rclpy.time import Time
@@ -7,7 +8,7 @@ from rclpy.time import Time
 
 class EEGBridge:
     @staticmethod
-    def numpy_to_eegblock(data: np.ndarray, sampling_rate: float = 256.0, timestamp: rclpy.time.Time = None) -> EEGBlock:
+    def numpy_to_eegblock(data: np.ndarray, sampling_rate: float = 256.0, timestamp: MsgTime = None) -> EEGBlock:
         """
         Convert a 2D numpy array of shape (channels, samples) to an EEGBlock message.
         """
@@ -24,7 +25,7 @@ class EEGBridge:
 
         # Header
         eeg_msg.header = Header()
-        eeg_msg.header.stamp = timestamp.to_msg() if timestamp else Time().to_msg()
+        eeg_msg.header.stamp = timestamp if timestamp else MsgTime()
 
         # Flatten the data
         eeg_msg.data = data.astype(np.float32).flatten().tolist()
