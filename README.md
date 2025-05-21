@@ -1,4 +1,9 @@
-# sense_bridge
+<div style="text-align: center;" align="center">
+  <img src="docs/figs/sense_bridge.svg" alt="" width="800"/>
+  <h1> sense_bridge </h1>
+</div>
+
+## :eyeglasses: Overview
 
 `sense_bridge` is a ROS 2 (Humble) package that provides utility functions to convert between NumPy arrays and custom `EEGBlock` messages defined in [`sense_msgs`](https://github.com/your-org/sense_msgs). It enables the structured EEG data collected to be flattened and transmitted as ROS messages.
 
@@ -17,10 +22,10 @@ mkdir sense-base && cd sense-base
 git clone git@github.com:sense-base/base.git
 cd base
 mkdir workspace/src
-# Clone this eeg_bridge repo
-git clone https://github.com/your-org/eeg_bridge.git
-# Clone the eeg_msgs package
-git clone https://github.com/your-org/eeg_msgs.git
+# Clone this sense_bridge repo
+git clone git@github.com:sense-base/sense_bridge.git
+# Clone the sense_msgs package
+git clone git@github.com:sense-base/sense_msgs.git
 ```
 
 Open the sense-base/base folder in VS Code and Reopen in Container when prompted. In the `.devcontainer`, build the workspace:
