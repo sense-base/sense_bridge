@@ -1,7 +1,7 @@
 from setuptools import setup
 
 
-package_name = "eeg_bridge"
+package_name = "sense_bridge"
 
 setup(
     name=package_name,
