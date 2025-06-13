@@ -44,5 +44,5 @@ To run the test locally:
 ```bash
 cd sense-base/base/workspace/src/sense_bridge
 uv pip install ."[dev]"
-uv run pytest sense_bridge/test
+uv run pytest eeg_bridge/test
 ```
