@@ -4,7 +4,7 @@ import pytest
 from std_msgs.msg import Header
 from builtin_interfaces.msg import Time
 
-from sense_bridge.bridge import EEGBridge
+from eeg_bridge.bridge import EEGBridge
 
 
 def test_numpy_to_eegblock_and_back():

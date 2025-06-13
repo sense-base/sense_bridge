@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>sense_bridge</name>
+  <name>eeg_bridge</name>
   <version>0.0.0</version>
   <description>EEG Bridge</description>
   <maintainer email="a.al-hindawi@ucl.ac.uk">root</maintainer>

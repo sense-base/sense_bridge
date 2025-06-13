@@ -29,8 +29,8 @@ sys.modules["std_msgs"] = std_msgs
 sys.modules["std_msgs.msg"] = std_msg_msg
 
 # Mock sense_msgs.msg.EEGBlock
-sense_msgs = types.ModuleType("sense_msgs")
-sense_msg_msg = types.ModuleType("msg")
+eeg_msgs = types.ModuleType("eeg_msgs")
+eeg_msg_msg = types.ModuleType("msg")
 
 class EEGBlock:
     def __init__(self):
@@ -40,10 +40,10 @@ class EEGBlock:
         self.sampling_rate = 0.0
         self.data = []
 
-sense_msg_msg.EEGBlock = EEGBlock
-sense_msgs.msg = sense_msg_msg
-sys.modules["sense_msgs"] = sense_msgs
-sys.modules["sense_msgs.msg"] = sense_msg_msg
+eeg_msg_msg.EEGBlock = EEGBlock
+eeg_msgs.msg = eeg_msg_msg
+sys.modules["eeg_msgs"] = eeg_msgs
+sys.modules["eeg_msgs.msg"] = eeg_msg_msg
 
 # Mock rclpy and rclpy.time
 rclpy = types.ModuleType("rclpy")

@@ -1,6 +1,6 @@
 import numpy as np
 from builtin_interfaces.msg import Time as MsgTime
-from sense_msgs.msg import EEGBlock
+from eeg_msgs.msg import EEGBlock
 from std_msgs.msg import Header
 import rclpy
 from rclpy.time import Time
