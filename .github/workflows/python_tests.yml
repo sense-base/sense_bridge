@@ -35,7 +35,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        cd src/sense_bridge
         pip install .[dev]
 
     - name: Run tests
