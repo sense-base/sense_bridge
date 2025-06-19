@@ -2,7 +2,7 @@
 <package format="3">
   <name>eeg_bridge</name>
   <version>0.0.0</version>
-  <description>Mock EEG Publisher</description>
+  <description>EEG Bridge</description>
   <maintainer email="a.al-hindawi@ucl.ac.uk">root</maintainer>
   <license>Apache-2.0</license>
 

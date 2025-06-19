@@ -13,6 +13,9 @@ setup(
         ("share/" + package_name, ["package.xml"]),
     ],
     install_requires=["setuptools", "numpy"],
+    extras_require={
+        "dev": ["pytest"],
+    },
     zip_safe=True,
     maintainer="Ahmed Al-Hindawi",
     maintainer_email="a.al-hindawi@ucl.ac.uk",

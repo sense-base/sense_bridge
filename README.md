@@ -43,3 +43,11 @@ python 3
 ```python
 from eeg_bridge.bridge import EEGBridge
 ```
+
+To run the test locally:
+
+```bash
+cd sense-base/base/workspace/src/sense_bridge
+uv pip install ."[dev]"
+uv run pytest eeg_bridge/test
+```
